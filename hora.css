@@ -1,0 +1,273 @@
+@charset "utf-8";
+
+body{
+    background-color: rgb(7, 12, 21); 
+    padding-top: 190px; 
+}
+
+#fundo{
+    
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 200px;
+
+    box-shadow: 0px 2px 0px 0px rgb(6, 243, 175);
+    
+    background-color: rgb(7, 12, 21);
+    position: fixed;
+    top: 0;
+}
+
+figure {
+    margin-top: 60px;
+    margin-inline: 30px;
+}
+
+.header{
+    display: flex;
+    /*justify-content: space-between;*/
+    width: 1000px;
+    justify-content: center;
+
+}
+
+/*Botôes*/
+.Bo{
+    margin-top: 60px;
+    width: 200px;
+    height: 70px;
+    margin-left: 50px;
+    background-color: transparent;
+    font-size: 20px;
+    color: rgb(240, 248, 255);
+    border: none;
+}
+
+.Bo:hover{
+    color: rgb(6, 243, 175);
+    transition: 0.3s;
+}
+
+/*Botão*/
+.B4{
+   border: rgb(6, 243, 175) solid 3px;
+   border-radius: 6px;
+   color: rgb(6, 243, 175);
+   font-style: normal;
+}
+
+.B4:hover{
+    color: rgb(7, 12, 21);
+    background-color:rgb(6, 243, 175);
+}
+
+
+#box{
+    display: grid;
+    margin-top: -14px;
+  
+
+    width: 100%;
+    height: 300px;
+    color: rgb(7, 12, 21);
+    font-weight:bolder;
+    font-style: normal;
+    font-size: 70px;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(0,227,162,1) 3%, rgba(5,85,109,1) 78%, rgba(5,82,108,1) 100%);
+    border: none;
+}
+
+.boxc{
+    display: flex;
+    justify-content: flex-start;
+     
+    margin-inline: 260px;
+    font-size: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.um{
+   display: flex;
+   justify-content: flex-start;
+   
+   margin-inline: 260px;
+   margin-top: 50px;
+}
+
+.logo{
+    margin-left: 230px;
+}
+
+.um{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+
+}
+
+.t1{
+    margin-inline: 260px;
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.t2{
+    margin-inline: 260px;
+    color: rgb(6, 243, 175);
+    font-size: 30px;
+}
+
+hr{
+    margin-inline: 260px;
+    width: 1500px;
+}
+
+.pro{
+    display: flex;
+    margin-top: 30px;
+    margin-inline: 500px;
+    margin-bottom: 30px;
+}
+
+hr{
+    margin-inline: 260px;
+    width: 1500px;
+}
+
+.arquivos{
+    margin-inline: 260px;
+    width: 300px;
+}
+
+li{
+    margin-inline: 220px;
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.arquivosdois{
+    margin-inline: 260px;
+    width: 500px;
+}
+
+/*Todas as fontes "normais" do Texto*/
+p{
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Imagem*/
+.servidor{
+    margin-inline: 260px;
+    width: 60%;
+    height: 130px;
+}
+
+.aside{
+    position: absolute;
+    margin-left: 1900px;
+
+    display: block;
+
+    background-color: blue;
+
+}
+
+/*mobile*/
+@media screen and (max-width: 767px) {
+
+    #box {
+        height: 95px;
+    }
+    
+    .boxc {
+        display: grid;
+        place-content: center;
+        white-space: nowrap;
+        font-size: 30px;
+        margin-left: 10%;
+    }
+
+    main .um {
+        white-space: nowrap;
+        margin-left: 5%;
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    figure {
+        margin-inline: none;
+    }
+
+    #logo, img.servidor {
+        margin-left: 0%;
+        width: 300px;
+    }
+
+    .arquivos, .arquivosdois{
+        margin-inline: none;
+        margin-inline: 0%;
+        height: 200px;
+        width: 250px;
+    }
+
+    .arquivosdois {
+        height: 250px;
+        width: 300px;
+    }
+
+    .servidor {
+        margin-inline: none;
+        height: 70px;
+    }
+
+    hr {
+        margin-inline: 5%;
+        width: 500px;
+    }
+
+    .pro {
+        margin-inline: 5%;
+        margin-top: none;
+        margin-bottom: none;
+        height: 300px;
+    }
+
+   .propaganda {
+        margin-left: 0%;
+   }
+
+    .t1 {
+        /*white-space: nowrap;*/
+        word-wrap: break-word;
+        font-size: 10px;
+        margin-left: 5%;
+        letter-spacing: 1px;
+    }
+
+    ul li {
+        word-wrap: break-word;
+        white-space: nowrap;
+        font-size: 10px;
+        margin-left: 0%;
+        letter-spacing: 1px;
+    }
+
+    .t2{
+        word-wrap: break-word;
+        white-space: nowrap;
+        font-size: 10px;
+        margin-left: 5%;
+        letter-spacing: 1px;
+    }
+
+}
+
+
+/*tablet*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+}

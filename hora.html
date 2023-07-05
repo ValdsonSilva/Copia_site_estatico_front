@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criando views e rotas no Django</title>
+    <link rel="stylesheet" href="hora.css">
+</head>
+<body>
+    <!--Header of the page-->
+    <header>
+        <div class="container">
+            <div id="fundo">
+                <figure>
+                    <img src="https://horadecodar.com.br/wp-content/uploads/2022/11/logo.webp" alt="Logo do hora de codar" class="Logo">
+                </figure>
+
+                <nav class="header">
+                    <button class="Bo B1">
+                        <b>Hora de codar</b>
+                    </button>
+                    <button class="Bo B2">
+                        <b>Blog</b>
+                    </button>
+                    <button class="Bo B3">
+                        <b>Contato</b>
+                    </button>
+                    <button class="Bo B4">
+                        <b>Comunidade</b>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+    </header>
+    
+    <!--Parte principal do site-->
+    <main>
+        <section id="box">
+            <h1 class="boxc">Criando Views e Rotas no Django 2</h1>
+        </section>
+        <!--<aside>
+            <div class="aside">
+                <button class="Bo B1">
+                    <b>Hora de codar</b>
+                </button>
+                <button class="Bo B2">
+                    <b>Blog</b>
+                </button>
+                <button class="Bo B3">
+                    <b>Contato</b>
+                </button>
+                <button class="Bo B4">
+                    <b>Comunidade</b>
+                </button>
+            </div>
+        </aside>-->
+        <p1 class="um">Neste artigo vamos ver como criar rotas e destinar views para as mesmas no Django</p1>
+
+        <figure>
+            <img src="	https://cdn-images-1.medium.com/max/800/1*pWrig4b4MlSICZxjuC6L1w.png" alt="Logo do Django" class="logo" id="logo">
+        </figure>
+        <p class="t1">Fala galera, tudo certo?<br><br>
+
+        Continuando a série do Django, neste artigo vamos criar o projeto que nos acompanhará até o fim.<br><br>
+
+        Algumas rotas que o constituirão e aprender a ligar views com rotas.<br></p>
+
+        <p class="t2">Posts anteriores e repositório:<br></p>
+        <p class="t1">Para você que chegou de paraquedas e quer acompanhar, estamos na parte 2, confira a parte 1:<br></p>
+
+        <p class="t2">Instalando Django 2 e criando um projeto:<br></p>
+        <p class="t1">Para quem quer clonar o projeto ou dar um fork clique aqui!<br></p>
+
+        <!--Horizontal line-->
+        <hr>
+
+
+        <!--Propaganda-->
+        <figure class="pro">
+            <img src="	https://horadecodar.com.br/wp-content/uploads/2023/02/ad-comunidade-hora-de-codar-post-2.png" alt="Propaganda" class="propaganda">
+        </figure>
+
+        <!--Horinzontal line-->
+        <hr>
+
+        <p class="t2">Nosso projeto:</p>
+        <p class="t1">Estava procurando alguns projetos de exemplo, e cheguei a uma conclusão que com um blog podemos abordar todos os<br>
+            recursos que aqui desejo passar a vocês.<br><br>
+
+            Então criaremos um projeto de um blog do 0 ao até espremer tudo que o Django pode nos oferecer.</p>
+
+        <p class="t1">
+            E é claro que se você só tiver interesse no conteúdo fique livre para acompanhar, seja fazendo um fork do projeto ou criando um.
+        </p>
+
+
+        <p class="t2">
+            Sem mais delongas!
+        </p>
+
+        <p class="t1">
+            Vamos criar o projeto com o comando no seu diretório de preferência:<br><br>
+
+            django-admin startproject meuprojeto
+            A seguinte estrutura de pastas e arquivos deve ter sido criada:
+        </p>
+
+        <figure>
+            <img src="	https://cdn-images-1.medium.com/max/800/1*_i9DIBz0LACt_vDsJPPZ8w.png" alt="Estrutura de pastas e arquivos Django" class="arquivos">
+        </figure>
+
+        <p class="t1">
+            Já de cara, como todo framework, a quantidade de arquivos nos começa a dar aquela preocupação ( o Django até que pega<br> leve com isso )
+            <br><br>
+            É por isso que vamos dar uma pincelada em todos!
+        </p>
+
+        <p class="t2">
+            Entendendo a estrutura inicial do Django:
+        </p>
+
+        <p class="t1">
+            Primeiramente ele cria duas pastas: uma que vai abrigar o projeto todo.
+            <br><br>
+            Depois com o mesmo nome ele cria uma pasta que abrigará os arquivos de configuração do projeto.
+        </p>
+
+        <!--List of elements-->
+        <ul>
+            <li>.[projectname]/__init__.py: O Python utiliza este arquivo para saber que esta pasta é um módulo, há uma explicação mais 
+            <br>técnica aqui, não fará muita diferença para nós, mas digamos que o Django sabe que tem arquivos para serem executados;</li>
+            <br>
+            <li>[projectname]/settings.py: Arquivo principal de configuração do projeto, contem por exemplo: diretório base, middlewares,<br> aplicativos do projeto, path dos arquivos estáticos;</li>
+            <br>
+            <li>[projectname]/urls.py: Arquivo principal de configuração de URLs da aplicação e do admin, embora cada módulo também tenha<br> seu arquivo de url, esse é o principal;</li>
+            <br>
+            <li>[projectname]/wsgi.py: O Django utiliza o WSGI para dar deploy nas aplicações, seria o jeito Pythonico de dar deploy em uma<br> app, novamente para os curiosos: entenda o padrão WSGI clicando aqui.</li>
+            <br>
+            <li>manage.py: Este arquivo controla muitas coisas que acontecem no framework, como por exemplo: o built-in server do Django,<br>criação de módulos e etc.</li>
+
+        </ul>
+
+        <p class="t1">
+            Dito isso, agora sabemos o que fazem os arquivos que são criados automaticamente pelo Django quando iniciamos um projeto.
+            <br><br>
+
+            Assim para atingir nosso objetivo que é criar as urls e algumas views, precisamos criar um módulo e habilitar estes recursos nele.
+        </p>
+
+        <p class="t2">
+            Criando nosso primeiro módulo:
+        </p>
+
+        <p class="t1">
+            O Django tem um conceito modular, e aqui é fácil nos confundirmos entre módulos(app) e projetos.
+            <br><br>
+            Temos dois comandos que automatizam a criação deles:
+        </p>
+
+        <!--List of elements-->
+        <ul>
+            <li><b>startproject</b>: inicia um projeto, utilizaremos uma única vez;</li>
+            <li><b>startapp</b>: inicia um módulo/app, utilizaremos de uma a x vezes, em que x seria o número de módulos do projeto;</li>
+        </ul>
+
+        <p class="t1"><b>O que é um projeto?</b>
+            <br><br>
+            Basicamente a estrutura que comportará nossos módulos e todos os demais arquivos da aplicação.
+            <br><br>
+            <b>O que é um módulo?</b>
+            <br><br>
+            Podemos facilmente exemplificar pensando num e-commerce que tenha um blog, um dos módulos seria o e-commerce e o<br> outro o blog, assim sendo nesta estrutura teremos um projeto e dois módulos.
+            <br><br>
+            Essa explicação serve para nos alinharmos futuramente quando vamos falar bastante nestes dois termos, temos que entender<br> como o framework funciona, não é?
+            <br><br>
+            Para criar o módulo, dentro do diretório do projeto digite:
+            <br><br>
+            django-admin startapp blog
+            Apesar de nossa aplicação ser um blog, o blog em si será um módulo.
+            <br><br>
+            Agora com o módulo blog criado, vamos criar as URLs, devemos fazer alguns procedimentos para configurar o projeto com<br> nosso novo app e deixa-lo apto a receber urls.
+            <br><br>
+            obs: este procedimento precisa ser feito a cada app criado, então vale entender bem o que acontece aqui.
+            <br><br>
+            Primeiro vamos registrar o módulo, todo módulo criado deve ser registrado para que a aplicação o reconheça, então no arquivo:
+            <br><br>
+            myproject/settings.py<br>
+            Adcione a constante INSTALLED_APPS o projeto blog, deverá ficar assim:
+        </p>
+
+        <figure>
+            <img src="	https://cdn-images-1.medium.com/max/800/1*Zz57tU2NK4MoAjmuHcxi8w.png" alt="Lista de apps na pasta settings do projeto Django" class="arquivosdois">
+        </figure>
+
+        <p class="t1">
+            Depois crie um arquivo chamado urls.py dentro da pasta blog, e neste arquivo insira o seguinte código:
+            <br><br>
+            from django.urls import path<br>
+            from . import views<br>
+            urlpatterns = [<br>
+
+            &nbsp &nbsp &nbspPath('', views.post_list, name='post_list'),<br>
+
+            ]<br>
+            Este arquivo vai conter todas as urls do nosso app blog, e cada app deve ter uma arquivo desse.
+            <br><br>
+            Note que estamos importando uma view, chamada post_list, logo mais iremos criar ela.
+            <br><br>
+            Vamos agora no arquivo de urls principal, registrar as urls do aplicativo blog, abra o arquivo:
+            <br><br>
+            myproject/myproject/urls.py
+            E deixe o arquivo deste jeito:
+            <br><br>
+            from django.contrib import admin<br>
+            from django.urls import path, include<br>
+            urlpatterns = [<br>
+            &nbsp &nbsp &nbsp path('', include('blog.urls')),<br>
+            &nbsp &nbsp &nbsp path('admin/', admin.site.urls),<br>
+            ]<br>
+            Primeiramente são importados alguns componentes:
+            
+            <!--List of elements-->
+            <ul>
+                <li><b>admin</b>: não se preocupe agora com este, nos próximos tutoriais teremos a explicação;</li>
+                <br>
+                <li><b>path</b>: este método cria as urls, recebe parâmetros como o próprio path e a view ou conjunto de views que serão acessadas;</li>
+                <br> 
+                <li><b>include</b>: serve para incluirmos um conjunto de views, como é feito nas do blog;</li>
+                <br>
+            </ul>
+        </p>
+
+        <p class="t1">
+            Este arquivo representa todas as urls do projeto, no caso todas as urls que criamos no app blog, serão importadas para o<br> projeto a partir da linha:
+            <br><br>
+            path('', include('blog.urls'))<br>
+            Para finalizar, vamos criar a nossa primeira view, de forma simples, mas para que você entenda o fluxo, abra o arquivo views.py<br> do app blog e escreva o seguinte código:
+            <br><br>
+            from django.shortcuts import render<br>
+            from django.http import HttpResponse<br>
+            def post_list(request):<br>
+            return HttpResponse('Olá Mundo!')
+        </p>
+
+
+        <P class="t2">
+            Quem é HttpResponse?
+        </P>
+
+        <p class="t1">
+            Um método que retorna uma resposta a uma requisição HTTP, utilizamos pois é uma maneira fácil de fazer um debug e ver se a<br> view está funcionando corretamente.
+            <br><br>
+            Agora vamos testar o que codamos, abra o terminal e digite na raiz do projeto o comando para rodar o server:
+            <br><br>
+            python3 manage.py runserver<br>
+            Vá para o link indicado pelo terminal, que deve ser algo próximo de http://127.0.0.1:8000/ e veja se a página ficou parecida com<br> esta:
+        </p>
+
+        <figure>
+            <img src="	https://cdn-images-1.medium.com/max/800/1*rxb5IGGp9RCsfqObvehxQw.png" alt="Imagem do servidor rodando" class="servidor">
+        </figure>
+
+        <p class="t1">
+            E congratulations, você criou uma estrutura de rotas e direcionou para uma view a 'home' do projeto.
+            <br><br>
+            Apenas para adiantar um pouco nosso trabalho futuro, vamos criar mais algumas urls que utilizaremos no projeto, aproveite<br> para treinar mais um pouco.
+            <br><br>
+            Deixe o arquivo de urls desta maneira:
+            <br><br>
+            urlpatterns = [<br>
+            &nbsp &nbsp &nbsp path('', views.post_list, name='post_list'),<br>
+            &nbsp &nbsp &nbsp path('sobre-nos/', views.about, name='about'),<br>
+            &nbsp &nbsp &nbsp path('contato/', views.contact, name='contact'),<br>
+            ]<br>
+            Crie estas funções no arquivo de views:
+            <br><br>
+            def about(request):<br>
+            &nbsp &nbsp &nbsp return HttpResponse('Sobre nós.')<br>
+            &nbsp &nbsp &nbsp def contact(request):<br>
+            return HttpResponse('Página de contato.')<br>
+        </p>
+    </main>
+    
+    <!--Conclusão do site-->
+    <footer>
+        <p class="t2">Conclusão</p>
+
+        <p class="t1">
+            Criamos o nosso projeto, que vamos atualizar ele nesta sequência de posts, e foi explicado em detalhes a estrutura inicial de<br> um projeto criado pelo Django.
+            <br><br>
+            Depois criamos um app chamado blog, que servirá para abrigar todos os recursos do blog.
+            <br><br>
+            Alimentamos uma view no app blog, e importamos ela para o projeto, assim todas as urls do blog poderão ser acessadas sem<br> problemas.
+            <br><br>
+            Para finalizar criamos uma view que está sendo chamada na url '/' do projeto, ela vai representar uma lista de posts, e por isso a<br> chamamos de post_list e será a nossa home.
+            <br><br>
+            Agora podemos criar apps para outras partes da aplicação, novas urls e views, por enquanto utilizamos apenas o<br> HttpResponse, para não misturar muitos conceitos, mas futuramente adicionaremos templates e depois faremos interações<br> com o banco nestas views.
+            <br><br>
+            Confira também o nosso canal do <strong>Youtube<strong> com muito conteúdo sobre programação, clicando aqui.
+            <br><br>
+            Espero que tenham gostado, batam aquela palminha e da aquele follow que me ajuda muito, motiva a gente ver a notificação<br> que alguém seguiu. 🙂
+            <br><br>
+            Caso tenham alguma dúvida, escrevem na área de comentários abaixo.
+            <br><br>
+            Obrigado e até o próximo!
+        </p>
+    </footer>
+
+ 
+</body>
+</html>
