@@ -202,12 +202,22 @@ p{
         margin-left: 150px;
         margin-top: 50px;
     }
+
+    .containernovonav {
+        background-color: blueviolet;
+        width: 90px;
+    }
+
+    .divisao {
+        width: 145px;
+    }
     
 
     .novonav {
         display: grid;
         background-color: brown;
         height: 200px;
+        margin-left: -10px;
 
     }
 

@@ -34,6 +34,7 @@ function Criando_botão() {
     var prime_botao = document.querySelector(".inicio");
 
     prime_botao.addEventListener("click", () => {
+        console.log("Entrou")
         
         if (estado){
             estado = True;
@@ -46,21 +47,30 @@ function Criando_botão() {
             <img src="https://horadecodar.com.br/wp-content/uploads/2022/11/logo.webp" alt="Logo do hora de codar" class="Logo">
         </figure>
 
-        <nav class="novonav">
-            <button class="Bo B1">
-                <b>Hora de codar</b>
-            </button>
-            <button class="Bo B2">
-                <b>Blog</b>
-            </button>
-            <button class="Bo B3">
-                <b>Contato</b>
-            </button>
-            <button class="Bo B4">
-                <b>Comunidade</b>
-            </button>
-        </nav>
+        <div class="divisao">
+        </div>
+
+        <div class='containernovonav'>
+            <nav class="novonav">
+                <button class="Bo B1">
+                    <b>Hora de codar</b>
+                </button>
+                <button class="Bo B2">
+                    <b>Blog</b>
+                </button>
+                <button class="Bo B3">
+                    <b>Contato</b>
+                </button>
+                <button class="Bo B4">
+                    <b>Comunidade</b>
+                </button>
+            </nav>
+        </div>
     `;
+        /*var Logo = document.querySelector("Logo");
+
+        Logo.style.display = "none";*/
+
         //inverte o estado do botão
         estado = !estado;
 
