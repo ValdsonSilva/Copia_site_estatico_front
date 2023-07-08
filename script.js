@@ -15,7 +15,7 @@ Some_botoes();*/
 
 
 
-document.addEventListener("DOMContentLoaded", function Criando_botão() {
+function Criando_botão() {
 
     if (window.innerWidth <= 767){
         //criando botão com template strings html
@@ -33,9 +33,18 @@ document.addEventListener("DOMContentLoaded", function Criando_botão() {
         var Elementopai = document.getElementById("fundo");
         Elementopai.innerHTML = Botao_inicio;
 
-        var prime_botao = document.querySelector(".inicio");
+    }
+    else {
+        // Restaurar o estado inicial (apenas a imagem e o botão)
+        console.log("Não é mobile!");
+    }
+}
 
-        prime_botao.addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", Criando_botão);
+
+var prime_botao = document.querySelector(".inicio");
+
+function Click_botao() {
             console.log("Entrou")
 
             //inverte o estado do botão
@@ -67,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function Criando_botão() {
                 var NovoComponente = document.createElement("div");
                 NovoComponente.innerHTML = componenteHTML;
                 
-                
+               
                 Elementopai.appendChild(NovoComponente);
 
                 /*var Elementopai = document.getElementById("fundo");
@@ -75,13 +84,8 @@ document.addEventListener("DOMContentLoaded", function Criando_botão() {
 
         }else {
             Elementopai.innerHTML = Botao_inicio;
-        }})
+        }
+}
+        
 
-
-            }
-    else {
-        console.log("Não é mobile!");
-    }
-} )
-
-// Criando_botão()
+prime_botao.addEventListener("click", Click_botao);
