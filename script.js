@@ -1,5 +1,5 @@
 
-function Some_botoes() {
+/*function Some_botoes() {
     //todos os botões da tela como lista
     var Botoes = document.getElementsByTagName("button");
 
@@ -11,74 +11,77 @@ function Some_botoes() {
     }
 }
 
-Some_botoes();
+Some_botoes();*/
 
 
-function Criando_botão() {
-    //criando botão com template strings html
 
-    var Botao_inicio = `
-        <figure>
-            <img src="https://horadecodar.com.br/wp-content/uploads/2022/11/logo.webp" alt="Logo do hora de codar" class="Logo">
-        </figure>
-        <button class="inicio">
-            <p>Imagem</p>
-        </button><br>
-    `;
-    var estado = false;
+document.addEventListener("DOMContentLoaded", function Criando_botão() {
 
-    // os dois componentes(em um) ficarão dentro do elemento de id=fundo
-    var Elementopai = document.getElementById("fundo");
-    Elementopai.innerHTML = Botao_inicio;
+    if (window.innerWidth <= 767){
+        //criando botão com template strings html
+        var Botao_inicio = `
+            <figure>
+                <img src="https://horadecodar.com.br/wp-content/uploads/2022/11/logo.webp" alt="Logo do hora de codar" class="Logo">
+            </figure>
+            <button class="inicio">
+                <p>Imagem</p>
+            </button><br>`;
 
-    var prime_botao = document.querySelector(".inicio");
+        var estado = false;
 
-    prime_botao.addEventListener("click", () => {
-        console.log("Entrou")
-        
-        if (estado){
-            estado = True;
-        }else{
-            estado = false;
-        }
-
-        var componenteHTML = `
-        <figure>
-            <img src="https://horadecodar.com.br/wp-content/uploads/2022/11/logo.webp" alt="Logo do hora de codar" class="Logo">
-        </figure>
-
-        <div class="divisao">
-        </div>
-
-        <div class='containernovonav'>
-            <nav class="novonav">
-                <button class="Bo B1">
-                    <b>Hora de codar</b>
-                </button>
-                <button class="Bo B2">
-                    <b>Blog</b>
-                </button>
-                <button class="Bo B3">
-                    <b>Contato</b>
-                </button>
-                <button class="Bo B4">
-                    <b>Comunidade</b>
-                </button>
-            </nav>
-        </div>
-    `;
-        /*var Logo = document.querySelector("Logo");
-
-        Logo.style.display = "none";*/
-
-        //inverte o estado do botão
-        estado = !estado;
-
+        // os dois componentes(em um) ficarão dentro do elemento de id=fundo
         var Elementopai = document.getElementById("fundo");
-        Elementopai.innerHTML = componenteHTML;
-    })
+        Elementopai.innerHTML = Botao_inicio;
+
+        var prime_botao = document.querySelector(".inicio");
+
+        prime_botao.addEventListener("click", () => {
+            console.log("Entrou")
+
+            //inverte o estado do botão
+            estado = !estado;
+            
+            if (estado){
+                var componenteHTML = `
+
+                    <div class="divisao">
+                    </div>
+
+                    <div class='containernovonav'>
+                        <nav class="novonav">
+                            <button class="Bo B1">
+                                <b>Hora de codar</b>
+                            </button>
+                            <button class="Bo B2">
+                                <b>Blog</b>
+                            </button>
+                            <button class="Bo B3">
+                                <b>Contato</b>
+                            </button>
+                            <button class="Bo B4">
+                                <b>Comunidade</b>
+                            </button>
+                        </nav>
+                    </div>`;
+
+                var NovoComponente = document.createElement("div");
+                NovoComponente.innerHTML = componenteHTML;
+                
+                
+                Elementopai.appendChild(NovoComponente);
+
+                /*var Elementopai = document.getElementById("fundo");
+                Elementopai.innerHTML = componenteHTML;*/
+
+        }else {
+            Elementopai.innerHTML = Botao_inicio;
+        }})
 
 
-}
+            }
+    else {
+        console.log("Não é mobile!");
+    }
+} )
 
-Criando_botão();
+// Criando_botão()

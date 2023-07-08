@@ -1,0 +1,13 @@
+Ctrl + ; = comenta e descomenta a linha de código
+
+
+------- OBS ---------
+Da forma escrita abaixo, a gente não substitui todos os componentes
+que já existem na nossa tag pai mas adicionamos um novo componente a ela!
+ "Elementopai.appendChild(NovoComponente);"
+
+
+Dessa forma nós iremos substituir todos os componentes(filhos) já existentes em nossa tag pai
+ Elementopai.innerHTML = NovoComponente;
+
+ ---------------------
