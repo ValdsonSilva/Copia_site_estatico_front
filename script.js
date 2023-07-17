@@ -27,24 +27,16 @@ function Criando_botão() {
                 <p>Imagem</p>
             </button><br>`;
 
-        var estado = false;
 
         // os dois componentes(em um) ficarão dentro do elemento de id=fundo
         var Elementopai = document.getElementById("fundo");
         Elementopai.innerHTML = Botao_inicio;
 
-    }
-    else {
-        // Restaurar o estado inicial (apenas a imagem e o botão)
-        console.log("Não é mobile!");
-    }
-}
+        var prime_botao = document.querySelector(".inicio");
 
-document.addEventListener("DOMContentLoaded", Criando_botão);
+        var estado = false;
 
-var prime_botao = document.querySelector(".inicio");
-
-function Click_botao() {
+        prime_botao.addEventListener("click", () => {
             console.log("Entrou")
 
             //inverte o estado do botão
@@ -85,7 +77,18 @@ function Click_botao() {
         }else {
             Elementopai.innerHTML = Botao_inicio;
         }
-}
-        
+    })
 
-prime_botao.addEventListener("click", Click_botao);
+    }
+    else {
+        // Restaurar o estado inicial (apenas a imagem e o botão)
+        console.log("Não é mobile!");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", Criando_botão());
+
+
+
+
+//prime_botao.addEventListener("click", Click_botao);
